@@ -509,6 +509,236 @@ textarea.form-control {
     min-height: 150px;
 }
 
+/* Restaurant Section */
+.restaurant-section {
+    background: $white;
+    padding: 5rem 0;
+    width: 100%;
+}
+
+.restaurant-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.restaurant-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: $text-dark;
+    font-family: $font-serif;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.restaurant-subtitle {
+    font-size: 1rem;
+    color: $gold;
+    font-family: $font-sans;
+    font-style: italic;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+.restaurant-description {
+    font-size: 1rem;
+    color: $text-light;
+    font-family: $font-sans;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+// Bootstrap Tabs Customization for Restaurant Section
+.restaurant-tabs {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    margin-top: 2rem;
+    
+    .nav-item {
+        margin-bottom: -2px;
+    }
+    
+    .nav-link {
+        color: $text-dark;
+        border: none;
+        border-bottom: 3px solid transparent;
+        padding: 0.75rem 1.5rem;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-family: $font-sans;
+        font-size: 0.875rem;
+        
+        &:hover {
+            border-color: $gold;
+            color: $gold;
+            background: transparent;
+        }
+        
+        &.active {
+            background: transparent;
+            border-color: $gold;
+            color: $gold;
+        }
+    }
+}
+
+.restaurant-hero {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    margin-top: 2rem;
+    border-radius: 8px;
+}
+
+.restaurant-hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    
+    .hero-bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        
+        &:not(.active) {
+            opacity: 0;
+            transform: scale(1.05);
+        }
+        
+        &.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
+
+.restaurant-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+    pointer-events: none;
+}
+
+.overlay-content {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    
+    &:not(.active) {
+        opacity: 0;
+        transform: translateY(20px);
+        pointer-events: none;
+    }
+    
+    &.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+}
+
+.overlay-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $text-dark;
+    font-family: $font-serif;
+    margin-bottom: 1rem;
+}
+
+.overlay-description {
+    font-size: 1rem;
+    color: $text-light;
+    font-family: $font-sans;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.overlay-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: $text-dark;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: $font-sans;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    
+    &:hover {
+        color: $gold;
+        gap: 0.75rem;
+        
+        &::after {
+            transform: translateX(3px);
+        }
+    }
+    
+    &::after {
+        content: '→';
+        font-size: 1rem;
+        transition: transform 0.3s ease;
+    }
+}
+
+// Restaurant Tab Content (hidden visually but present for Bootstrap)
+.restaurant-tab-content {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    
+    .tab-pane {
+        transition: opacity 0.3s ease;
+        
+        &.fade {
+            opacity: 0;
+            transition: opacity 0.15s linear;
+            
+            &.show {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+// Hero image styling - all images are in the same position
+.restaurant-hero-image {
+    img.hero-bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+}
+
+
 /* News/Aktualności Section */
 .news-section {
     background: $dark-grey;
@@ -868,6 +1098,50 @@ textarea.form-control {
         padding: 0 20px;
     }
 
+    /* Restaurant Section Responsive */
+    .restaurant-section {
+        padding: 3rem 0;
+    }
+    
+    .restaurant-title {
+        font-size: 2.5rem;
+    }
+    
+    .restaurant-subtitle {
+        font-size: 0.875rem;
+    }
+    
+    .restaurant-description {
+        font-size: 0.9375rem;
+        padding: 0 1rem;
+    }
+    
+    .restaurant-tabs {
+        .nav-link {
+            padding: 0.625rem 1rem;
+            font-size: 0.8125rem;
+        }
+    }
+    
+    .restaurant-hero {
+        height: 500px;
+    }
+    
+    .overlay-content {
+        bottom: 1.5rem;
+        left: 1.5rem;
+        padding: 2rem;
+        max-width: calc(100% - 3rem);
+    }
+    
+    .overlay-title {
+        font-size: 1.75rem;
+    }
+    
+    .overlay-description {
+        font-size: 0.9375rem;
+    }
+
     /* News Section Responsive */
     .news-section {
         padding: 3rem 0;
@@ -1028,6 +1302,47 @@ textarea.form-control {
 }
 
 @media (max-width: 768px) {
+    /* Restaurant Section Mobile */
+    .restaurant-title {
+        font-size: 2rem;
+    }
+    
+    .restaurant-subtitle {
+        font-size: 0.8125rem;
+    }
+    
+    .restaurant-description {
+        font-size: 0.875rem;
+        padding: 0;
+    }
+    
+    .restaurant-tabs {
+        .nav-link {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.75rem;
+        }
+    }
+    
+    .restaurant-hero {
+        height: 400px;
+    }
+    
+    .overlay-content {
+        bottom: 1rem;
+        left: 1rem;
+        padding: 1.5rem;
+        max-width: calc(100% - 2rem);
+    }
+    
+    .overlay-title {
+        font-size: 1.5rem;
+    }
+    
+    .overlay-description {
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+    }
+
     .top-bar-logo {
         max-height: 40px;
         max-width: 200px;

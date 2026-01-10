@@ -14,6 +14,64 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
+    // Restaurant Tabs - Handle image and overlay content changes
+    const restaurantTabContainer = document.getElementById('restaurantTabs');
+    if (restaurantTabContainer) {
+        restaurantTabContainer.addEventListener('shown.bs.tab', (event) => {
+            const targetId = event.target.getAttribute('data-bs-target');
+            if (targetId) {
+                handleRestaurantTabChange(targetId);
+            }
+        });
+    }
+    
+    // Handle Restaurant Tab Changes - Change images and overlay content with smooth transition
+    function handleRestaurantTabChange(targetId) {
+        // Get the active tab ID (remove # if present)
+        const activeTabId = targetId.replace('#', '');
+        
+        // Get all hero images and overlay content
+        const allImages = document.querySelectorAll('.hero-bg-image');
+        const allOverlayContent = document.querySelectorAll('.overlay-content');
+        
+        // Hide all images and overlay content with fade out
+        allImages.forEach(img => {
+            img.classList.remove('active');
+        });
+        
+        allOverlayContent.forEach(content => {
+            content.classList.remove('active');
+        });
+        
+        // Show active image and overlay content with fade in
+        const activeImage = document.querySelector(`.hero-bg-image[data-tab="${activeTabId}"]`);
+        const activeOverlay = document.querySelector(`#overlay-${activeTabId}`);
+        
+        if (activeImage) {
+            setTimeout(() => {
+                activeImage.classList.add('active');
+            }, 150);
+        }
+        
+        if (activeOverlay) {
+            setTimeout(() => {
+                activeOverlay.classList.add('active');
+            }, 200);
+        }
+    }
+    
+    // Initialize first tab image and overlay visibility on page load
+    const firstImage = document.querySelector('.hero-bg-image[data-tab="restaurant-content"]');
+    const firstOverlay = document.querySelector('#overlay-restaurant-content');
+    
+    if (firstImage) {
+        firstImage.classList.add('active');
+    }
+    
+    if (firstOverlay) {
+        firstOverlay.classList.add('active');
+    }
+    
     // Initialize Bootstrap Dropdowns - but don't show them automatically
     const dropdownToggleList = document.querySelectorAll('[data-bs-toggle="dropdown"]');
     dropdownToggleList.forEach(dropdownToggleEl => {

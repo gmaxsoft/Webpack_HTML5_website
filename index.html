@@ -117,6 +117,77 @@
     </header>
 
     <main>
+        <!-- Restauracja Section -->
+        <section class="restaurant-section">
+            <div class="container">
+                <div class="restaurant-header">
+                    <h2 class="restaurant-title">RESTAURACJA</h2>
+                    <p class="restaurant-subtitle">AT VERO EOS ET ACCUSAMUS ET IUSTO ODIO</p>
+                    <p class="restaurant-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    
+                    <!-- Bootstrap Tabs -->
+                    <ul class="nav nav-tabs restaurant-tabs" id="restaurantTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="restaurant-tab" data-bs-toggle="tab" data-bs-target="#restaurant-content" type="button" role="tab" aria-controls="restaurant-content" aria-selected="true">
+                                RESTAURACJA
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="bar-grill-tab" data-bs-toggle="tab" data-bs-target="#bar-grill-content" type="button" role="tab" aria-controls="bar-grill-content" aria-selected="false">
+                                BAR I GRILL
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="apartments-tab" data-bs-toggle="tab" data-bs-target="#apartments-content" type="button" role="tab" aria-controls="apartments-content" aria-selected="false">
+                                APARTAMENTY
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Restaurant Hero Section (outside tab-content for shared images) -->
+                <div class="restaurant-hero">
+                    <!-- All images in one container -->
+                    <div class="restaurant-hero-image">
+                        <img src="https://picsum.photos/1400/600?random=10" alt="Restauracja" class="hero-bg-image active" data-tab="restaurant-content">
+                        <img src="https://picsum.photos/1400/600?random=11" alt="Bar i Grill" class="hero-bg-image" data-tab="bar-grill-content">
+                        <img src="https://picsum.photos/1400/600?random=12" alt="Apartamenty" class="hero-bg-image" data-tab="apartments-content">
+                    </div>
+                    
+                    <!-- Overlay content that changes with tabs -->
+                    <div class="restaurant-overlay">
+                        <!-- Restaurant Tab Content -->
+                        <div class="overlay-content active" id="overlay-restaurant-content">
+                            <h3 class="overlay-title">Restauracja</h3>
+                            <p class="overlay-description">Within famous entrance are some of the top London restaurants and bars, we welcome guests for a inspiring culinary experience.</p>
+                            <a href="#restauracja" class="overlay-link">ZOBACZ WIĘCEJ →</a>
+                        </div>
+                        
+                        <!-- Bar & Grill Tab Content -->
+                        <div class="overlay-content" id="overlay-bar-grill-content">
+                            <h3 class="overlay-title">Bar i Grill</h3>
+                            <p class="overlay-description">Experience the finest selection of grilled specialties and premium beverages in our elegant bar and grill, where culinary excellence meets sophisticated ambiance.</p>
+                            <a href="#bar-grill" class="overlay-link">ZOBACZ WIĘCEJ →</a>
+                        </div>
+                        
+                        <!-- Apartments Tab Content -->
+                        <div class="overlay-content" id="overlay-apartments-content">
+                            <h3 class="overlay-title">Apartamenty</h3>
+                            <p class="overlay-description">Luxury apartments with modern amenities and breathtaking views, designed for comfort and relaxation in the heart of the city.</p>
+                            <a href="#apartamenty" class="overlay-link">ZOBACZ WIĘCEJ →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tab Content (hidden visually but present for Bootstrap Tab functionality) -->
+                <div class="tab-content restaurant-tab-content" id="restaurantTabContent">
+                    <div class="tab-pane fade show active" id="restaurant-content" role="tabpanel" aria-labelledby="restaurant-tab" tabindex="0"></div>
+                    <div class="tab-pane fade" id="bar-grill-content" role="tabpanel" aria-labelledby="bar-grill-tab" tabindex="0"></div>
+                    <div class="tab-pane fade" id="apartments-content" role="tabpanel" aria-labelledby="apartments-tab" tabindex="0"></div>
+                </div>
+            </div>
+        </section>
+        
         <!-- Aktualności Section -->
         <section class="news-section">
             <div class="container">
