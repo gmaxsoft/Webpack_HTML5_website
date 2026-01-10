@@ -1,52 +1,58 @@
-// Dropdown Menu Functionality
-const dropdowns = document.querySelectorAll('.dropdown');
-
-dropdowns.forEach(dropdown => {
-    const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
-    
-    // Desktop: hover to open
-    dropdown.addEventListener('mouseenter', () => {
-        if (window.innerWidth > 968) {
-            dropdown.classList.add('active');
-        }
-    });
-    
-    dropdown.addEventListener('mouseleave', () => {
-        if (window.innerWidth > 968) {
-            dropdown.classList.remove('active');
-        }
-    });
-    
-    // Mobile/Tablet: click to toggle
-    if (dropdownToggle) {
-        dropdownToggle.addEventListener('click', (e) => {
-            if (window.innerWidth <= 968) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                // Close other dropdowns
-                dropdowns.forEach(otherDropdown => {
-                    if (otherDropdown !== dropdown) {
-                        otherDropdown.classList.remove('active');
-                    }
-                });
-                
-                // Toggle current dropdown
-                dropdown.classList.toggle('active');
-            }
-        });
+// Bootstrap Dropdown and Tabs initialization
+document.addEventListener('DOMContentLoaded', () => {
+    // Wait for bootstrap to be available
+    if (typeof bootstrap === 'undefined') {
+        console.error('Bootstrap is not loaded');
+        return;
     }
-});
-
-// Close dropdowns when clicking outside
-document.addEventListener('click', (e) => {
-    if (window.innerWidth <= 968) {
-        if (!e.target.closest('.dropdown')) {
-            dropdowns.forEach(dropdown => {
-                dropdown.classList.remove('active');
+    
+    // Initialize Bootstrap Tabs - Bootstrap initializes automatically with data-bs-toggle="tab"
+    const tabTriggerList = document.querySelectorAll('[data-bs-toggle="tab"]');
+    tabTriggerList.forEach(tabTriggerEl => {
+        if (bootstrap.Tab) {
+            new bootstrap.Tab(tabTriggerEl);
+        }
+    });
+    
+    // Initialize Bootstrap Dropdowns - but don't show them automatically
+    const dropdownToggleList = document.querySelectorAll('[data-bs-toggle="dropdown"]');
+    dropdownToggleList.forEach(dropdownToggleEl => {
+        if (bootstrap.Dropdown) {
+            // Initialize dropdown but keep it hidden - will be shown on hover or click
+            const dropdown = bootstrap.Dropdown.getOrCreateInstance(dropdownToggleEl, {
+                autoClose: true
+            });
+            // Ensure dropdown starts hidden
+            dropdown.hide();
+        }
+    });
+    
+    // Desktop: hover to show dropdown (only for desktop > 968px)
+    // Mobile: click to toggle (handled automatically by Bootstrap via data-bs-toggle)
+    const dropdowns = document.querySelectorAll('.dropdown');
+    
+    dropdowns.forEach(dropdown => {
+        const dropdownToggle = dropdown.querySelector('[data-bs-toggle="dropdown"]');
+        
+        if (!dropdownToggle || !bootstrap.Dropdown) return;
+        
+        // Only add hover for desktop (> 968px)
+        if (window.innerWidth > 968) {
+            dropdown.addEventListener('mouseenter', () => {
+                const bsDropdown = bootstrap.Dropdown.getInstance(dropdownToggle) || bootstrap.Dropdown.getOrCreateInstance(dropdownToggle);
+                if (bsDropdown) {
+                    bsDropdown.show();
+                }
+            });
+            
+            dropdown.addEventListener('mouseleave', () => {
+                const bsDropdown = bootstrap.Dropdown.getInstance(dropdownToggle);
+                if (bsDropdown) {
+                    bsDropdown.hide();
+                }
             });
         }
-    }
+    });
 });
 
 // Mobile Menu Toggle
@@ -54,7 +60,7 @@ const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 const navLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)');
 
-if (hamburger) {
+if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
