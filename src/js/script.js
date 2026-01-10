@@ -429,16 +429,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// News card button interactions (for future detail pages)
+// News card button interactions
 document.addEventListener('DOMContentLoaded', () => {
     const newsButtons = document.querySelectorAll('.news-btn');
     
     newsButtons.forEach(button => {
         button.addEventListener('click', (e) => {
-            e.preventDefault();
             const href = button.getAttribute('href');
-            // For now, just scroll or show alert - can be replaced with actual navigation later
+            
+            // Jeśli link jest do anchor (#), użyj smooth scroll
             if (href && href.startsWith('#')) {
+                e.preventDefault();
                 const targetSection = document.querySelector(href);
                 if (targetSection) {
                     const offsetTop = targetSection.offsetTop - 80;
@@ -448,6 +449,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
             }
+            // Jeśli link jest do podstrony (.html), pozwól na normalną nawigację (nie wywołuj preventDefault)
+            // Domyślnie przeglądarka przejdzie do podstrony
         });
     });
 });
