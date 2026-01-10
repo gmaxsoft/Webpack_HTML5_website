@@ -509,6 +509,382 @@ textarea.form-control {
     min-height: 150px;
 }
 
+/* Holiday Homes Section */
+.holiday-homes-section {
+    background: $white;
+    padding: 5rem 0;
+    width: 100%;
+}
+
+.holiday-homes-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.holiday-homes-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: $text-dark;
+    font-family: $font-serif;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.holiday-homes-subtitle {
+    font-size: 1rem;
+    color: $text-light;
+    font-family: $font-sans;
+    font-style: italic;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.holiday-homes-images-row {
+    margin-bottom: 4rem;
+    gap: 0;
+}
+
+.holiday-homes-image-col {
+    padding: 0;
+}
+
+.holiday-homes-image-wrapper {
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0);
+        transition: background 0.3s ease;
+        pointer-events: none;
+    }
+    
+    &:hover::after {
+        background: rgba(0, 0, 0, 0.3);
+    }
+}
+
+.holiday-homes-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    
+    .holiday-homes-image-wrapper:hover & {
+        transform: scale(1.05);
+        filter: brightness(0.7);
+    }
+}
+
+.holiday-homes-content-row {
+    align-items: flex-start;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.holiday-homes-text-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.holiday-homes-text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.holiday-homes-content-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $text-dark;
+    font-family: $font-serif;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.holiday-homes-content-subtitle {
+    font-size: 0.875rem;
+    color: $text-light;
+    font-family: $font-sans;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.holiday-homes-description {
+    font-size: 1rem;
+    color: $text-light;
+    font-family: $font-sans;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.holiday-homes-cta {
+    margin-top: 1.5rem;
+}
+
+.holiday-homes-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    background: $text-dark;
+    color: $white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    font-family: $font-sans;
+    border: 2px solid $text-dark;
+    border-radius: 4px;
+    
+    &:hover {
+        background: $gold;
+        color: $text-dark;
+        border-color: $gold;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.holiday-homes-specs-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.holiday-homes-specifications {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.holiday-spec-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    
+    &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}
+
+.holiday-spec-label {
+    font-size: 1rem;
+    color: $text-dark;
+    font-family: $font-sans;
+    font-weight: 500;
+}
+
+.holiday-spec-value {
+    font-size: 1.125rem;
+    color: $text-dark;
+    font-family: $font-serif;
+    font-weight: 700;
+}
+
+// Responsive styles for Holiday Homes Section
+@media (max-width: 1200px) {
+    .holiday-homes-title {
+        font-size: 3rem;
+    }
+    
+    .holiday-homes-image-wrapper {
+        height: 500px;
+    }
+    
+    .holiday-homes-content-title {
+        font-size: 2.25rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .holiday-homes-section {
+        padding: 3rem 0;
+    }
+    
+    .holiday-homes-title {
+        font-size: 2.5rem;
+    }
+    
+    .holiday-homes-subtitle {
+        font-size: 0.875rem;
+    }
+    
+    .holiday-homes-header {
+        margin-bottom: 3rem;
+    }
+    
+    .holiday-homes-images-row {
+        margin-bottom: 3rem;
+    }
+    
+    .holiday-homes-image-wrapper {
+        height: 400px;
+    }
+    
+    .holiday-homes-content-row {
+        gap: 2rem;
+    }
+    
+    .holiday-homes-content-title {
+        font-size: 2rem;
+    }
+    
+    .holiday-homes-description {
+        font-size: 0.9375rem;
+    }
+    
+    .holiday-spec-label {
+        font-size: 0.9375rem;
+    }
+    
+    .holiday-spec-value {
+        font-size: 1rem;
+    }
+    
+    .holiday-homes-btn {
+        padding: 0.875rem 2rem;
+        font-size: 0.8125rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .holiday-homes-title {
+        font-size: 2rem;
+    }
+    
+    .holiday-homes-subtitle {
+        font-size: 0.8125rem;
+    }
+    
+    .holiday-homes-images-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .holiday-homes-image-wrapper {
+        height: 350px;
+    }
+    
+    .holiday-homes-content-row {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .holiday-homes-text-col {
+        order: 1;
+    }
+    
+    .holiday-homes-specs-col {
+        order: 2;
+    }
+    
+    .holiday-homes-content-title {
+        font-size: 1.75rem;
+    }
+    
+    .holiday-homes-content-subtitle {
+        font-size: 0.8125rem;
+    }
+    
+    .holiday-homes-description {
+        font-size: 0.875rem;
+    }
+    
+    .holiday-homes-specifications {
+        gap: 1rem;
+    }
+    
+    .holiday-spec-item {
+        padding-bottom: 0.75rem;
+    }
+    
+    .holiday-spec-label {
+        font-size: 0.875rem;
+    }
+    
+    .holiday-spec-value {
+        font-size: 0.9375rem;
+    }
+    
+    .holiday-homes-btn {
+        width: 100%;
+        padding: 0.875rem 1.5rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .holiday-homes-section {
+        padding: 2rem 0;
+    }
+    
+    .holiday-homes-title {
+        font-size: 1.75rem;
+    }
+    
+    .holiday-homes-subtitle {
+        font-size: 0.75rem;
+    }
+    
+    .holiday-homes-header {
+        margin-bottom: 2rem;
+    }
+    
+    .holiday-homes-images-row {
+        margin-bottom: 2rem;
+    }
+    
+    .holiday-homes-image-wrapper {
+        height: 300px;
+    }
+    
+    .holiday-homes-content-row {
+        margin-top: 1.5rem;
+    }
+    
+    .holiday-homes-text-content {
+        gap: 1rem;
+    }
+    
+    .holiday-homes-content-title {
+        font-size: 1.5rem;
+    }
+    
+    .holiday-homes-content-subtitle {
+        font-size: 0.75rem;
+    }
+    
+    .holiday-homes-description {
+        font-size: 0.8125rem;
+    }
+    
+    .holiday-homes-cta {
+        margin-top: 1rem;
+    }
+    
+    .holiday-spec-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+}
+
 /* Specifications Section */
 .specifications-section {
     background: $white;
