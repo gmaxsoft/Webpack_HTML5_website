@@ -370,20 +370,22 @@ navLinks.forEach(link => {
     });
 });
 
-// Contact Form Handling (for future use)
+// Contact Form Handling
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Get form values
-        const name = document.getElementById('name')?.value;
-        const email = document.getElementById('email')?.value;
-        const message = document.getElementById('message')?.value;
+        // Get form values (support both old and new field IDs)
+        const name = document.getElementById('contactName')?.value || document.getElementById('name')?.value;
+        const email = document.getElementById('contactEmail')?.value || document.getElementById('email')?.value;
+        const phone = document.getElementById('contactPhone')?.value || document.getElementById('phone')?.value;
+        const subject = document.getElementById('contactSubject')?.value || document.getElementById('subject')?.value;
+        const message = document.getElementById('contactMessage')?.value || document.getElementById('message')?.value;
         
         // Simple validation
-        if (!name || !email || !message) {
-            alert('Proszę wypełnić wszystkie pola formularza.');
+        if (!name || !email || !subject || !message) {
+            alert('Proszę wypełnić wszystkie wymagane pola formularza.');
             return;
         }
         
@@ -401,6 +403,18 @@ if (contactForm) {
         contactForm.reset();
     });
 }
+
+// Gallery hover effects and lightbox (optional)
+document.addEventListener('DOMContentLoaded', () => {
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+    galleryItems.forEach(img => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', function() {
+            // Could open in lightbox or full size
+            window.open(this.src, '_blank');
+        });
+    });
+});
 
 // Scroll animations
 const observerOptions = {
@@ -451,6 +465,49 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             // Jeśli link jest do podstrony (.html), pozwól na normalną nawigację (nie wywołuj preventDefault)
             // Domyślnie przeglądarka przejdzie do podstrony
+        });
+    });
+    
+    // Contact Form Handler
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('contactName')?.value;
+            const email = document.getElementById('contactEmail')?.value;
+            const phone = document.getElementById('contactPhone')?.value;
+            const subject = document.getElementById('contactSubject')?.value;
+            const message = document.getElementById('contactMessage')?.value;
+            
+            // Basic validation
+            if (!name || !email || !subject || !message) {
+                alert('Proszę wypełnić wszystkie wymagane pola.');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Proszę podać prawidłowy adres email.');
+                return;
+            }
+            
+            // Here you would normally send the form data to a server
+            // For now, just show a success message
+            alert('Dziękujemy za wiadomość! Skontaktujemy się z Tobą wkrótce.');
+            contactForm.reset();
+        });
+    }
+    
+    // Gallery hover effects
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+    galleryItems.forEach(img => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', function() {
+            // Could open in lightbox or full size
+            window.open(this.src, '_blank');
         });
     });
 });
