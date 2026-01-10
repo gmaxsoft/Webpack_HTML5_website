@@ -198,9 +198,12 @@ body {
     list-style: none;
     gap: 2rem;
     align-items: center;
+    justify-content: center;
     margin: 0;
     padding: 0;
     position: relative;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 .nav-link {
