@@ -3707,6 +3707,199 @@ textarea.form-control {
     }
 }
 
+/* Attraction Detail Section Styles (Full Width, No Sidebar) */
+.attraction-detail-section {
+    background: $white;
+    padding: 4rem 0;
+    min-height: 70vh;
+    
+    .container {
+        max-width: 1200px;
+    }
+}
+
+.attraction-detail-article {
+    background: $white;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.attraction-detail-category {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: $gold;
+    color: $dark-grey;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+}
+
+.attraction-detail-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: $dark-grey;
+    margin-bottom: 1.5rem;
+    font-family: $font-serif;
+    line-height: 1.2;
+}
+
+.attraction-detail-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: $text-light;
+    font-size: 0.875rem;
+    
+    span {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        
+        i {
+            color: $gold;
+        }
+    }
+}
+
+.attraction-detail-image {
+    width: 100%;
+    margin-bottom: 2.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.3s ease;
+    }
+    
+    &:hover img {
+        transform: scale(1.02);
+    }
+}
+
+.attraction-detail-content {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: $text-dark;
+    margin-bottom: 2.5rem;
+    
+    p {
+        margin-bottom: 1.5rem;
+    }
+    
+    p:last-child {
+        margin-bottom: 0;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: $dark-grey;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        font-family: $font-serif;
+        
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $dark-grey;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-family: $font-serif;
+    }
+    
+    ul, ol {
+        margin: 1.5rem 0;
+        padding-left: 2rem;
+        color: $text-dark;
+        
+        li {
+            margin-bottom: 0.75rem;
+            line-height: 1.8;
+        }
+    }
+}
+
+.attraction-detail-features {
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 2px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Responsive Styles for Attraction Detail Pages */
+@media (max-width: 991px) {
+    .attraction-detail-title {
+        font-size: 2rem;
+    }
+    
+    .attraction-detail-content {
+        font-size: 1rem;
+        
+        h2 {
+            font-size: 1.5rem;
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+        }
+    }
+    
+    .features-title {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .attraction-detail-section {
+        padding: 2rem 0;
+    }
+    
+    .attraction-detail-title {
+        font-size: 1.75rem;
+    }
+    
+    .attraction-detail-meta {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .attraction-detail-content {
+        font-size: 0.9375rem;
+        
+        h2 {
+            font-size: 1.375rem;
+        }
+        
+        h3 {
+            font-size: 1.125rem;
+        }
+    }
+    
+    .attraction-detail-image {
+        border-radius: 8px;
+        margin-bottom: 2rem;
+    }
+    
+    .attraction-detail-features {
+        margin-top: 2rem;
+        padding-top: 2rem;
+    }
+}
+
 /* Smooth Scroll */
 html {
     scroll-behavior: smooth;
