@@ -117,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const { Pagination, Autoplay } = window.SwiperModules;
         const Swiper = window.Swiper;
         
+        // News Slider
         const newsSliderEl = document.getElementById('newsSlider');
         if (newsSliderEl) {
             new Swiper('#newsSlider', {
@@ -138,7 +139,52 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Pagination
                 pagination: {
-                    el: '.swiper-pagination',
+                    el: newsSliderEl.querySelector('.swiper-pagination'),
+                    clickable: true,
+                    dynamicBullets: false,
+                },
+                
+                // Responsive breakpoints
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1,
+                        spaceBetween: 15,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    992: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                },
+            });
+        }
+        
+        // Attractions Slider (3 cards visible, 6 total)
+        const attractionsSliderEl = document.getElementById('attractionsSlider');
+        if (attractionsSliderEl) {
+            new Swiper('#attractionsSlider', {
+                // Configure Swiper to use modules
+                modules: [Pagination, Autoplay],
+                
+                // Optional parameters
+                loop: true,
+                slidesPerView: 3,
+                spaceBetween: 30,
+                speed: 600,
+                
+                // Autoplay
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                },
+                
+                // Pagination
+                pagination: {
+                    el: attractionsSliderEl.querySelector('.swiper-pagination'),
                     clickable: true,
                     dynamicBullets: false,
                 },
