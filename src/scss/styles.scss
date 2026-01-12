@@ -15,6 +15,7 @@
 @import 'bootstrap/scss/nav';
 @import 'bootstrap/scss/navbar';
 @import 'bootstrap/scss/transitions';
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
 
 * {
     margin: 0;
@@ -44,6 +45,10 @@ body {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-heading;
 }
 
 // Bootstrap container customization
@@ -109,6 +114,7 @@ body {
     height: 16px;
     flex-shrink: 0;
     font-size: 0.875rem;
+    vertical-align: middle;
 }
 
 .top-bar-item span {
@@ -170,6 +176,14 @@ body {
     gap: 2rem;
 }
 
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+}
+
 /* Logo */
 .logo {
     display: flex;
@@ -202,7 +216,6 @@ body {
     margin: 0;
     padding: 0;
     position: relative;
-    width: 100%;
     flex-wrap: wrap;
 }
 
@@ -368,6 +381,7 @@ body {
     color: var(--dark-color);
     margin-bottom: 3rem;
     position: relative;
+    font-family: $font-heading;
 }
 
 .section-title::after {
@@ -845,7 +859,7 @@ textarea.form-control {
     font-size: 4rem;
     font-weight: 700;
     color: $white;
-    font-family: $font-sans;
+    font-family: $font-heading;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin: 0;
@@ -1117,7 +1131,7 @@ textarea.form-control {
     font-size: 3rem;
     font-weight: 700;
     color: $text-dark;
-    font-family: $font-serif;
+    font-family: $font-heading;
     margin-bottom: 2rem;
     line-height: 1.3;
 }
@@ -1463,7 +1477,7 @@ textarea.form-control {
     font-size: 3.5rem;
     font-weight: 700;
     color: $text-dark;
-    font-family: $font-serif;
+    font-family: $font-heading;
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -1544,7 +1558,7 @@ textarea.form-control {
     font-size: 2.5rem;
     font-weight: 700;
     color: $text-dark;
-    font-family: $font-serif;
+    font-family: $font-heading;
     margin-bottom: 0.5rem;
     line-height: 1.3;
 }
@@ -1839,7 +1853,7 @@ textarea.form-control {
     font-size: 3.5rem;
     font-weight: 700;
     color: $text-dark;
-    font-family: $font-serif;
+    font-family: $font-heading;
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -2244,7 +2258,7 @@ textarea.form-control {
     font-size: 3.5rem;
     font-weight: 700;
     color: $white;
-    font-family: $font-serif;
+    font-family: $font-heading;
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -2308,7 +2322,7 @@ textarea.form-control {
     font-weight: 700;
     color: $white;
     margin-bottom: 1rem;
-    font-family: $font-serif;
+    font-family: $font-heading;
     line-height: 1.3;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -2413,7 +2427,7 @@ textarea.form-control {
     font-size: 3.5rem;
     font-weight: 700;
     color: $text-dark;
-    font-family: $font-serif;
+    font-family: $font-heading;
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -2550,7 +2564,7 @@ textarea.form-control {
     font-size: 2rem;
     font-weight: 700;
     color: $text-dark;
-    font-family: $font-serif;
+    font-family: $font-heading;
     margin-bottom: 1rem;
 }
 
@@ -2643,7 +2657,7 @@ textarea.form-control {
     font-size: 3.5rem;
     font-weight: 700;
     color: $white;
-    font-family: $font-serif;
+    font-family: $font-heading;
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -2723,7 +2737,7 @@ textarea.form-control {
     font-weight: 700;
     color: $white;
     margin-bottom: 1.5rem;
-    font-family: $font-serif;
+    font-family: $font-heading;
     line-height: 1.3;
 }
 
@@ -2906,7 +2920,7 @@ textarea.form-control {
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-family: $font-sans;
+    font-family: $font-heading;
 }
 
 .footer-text {
@@ -3444,7 +3458,7 @@ textarea.form-control {
     font-weight: 700;
     color: $dark-grey;
     margin-bottom: 1.5rem;
-    font-family: $font-serif;
+    font-family: $font-heading;
     line-height: 1.2;
 }
 
@@ -3507,7 +3521,7 @@ textarea.form-control {
     font-weight: 700;
     color: $dark-grey;
     margin-bottom: 1.5rem;
-    font-family: $font-serif;
+    font-family: $font-heading;
 }
 
 .features-list {
@@ -3559,7 +3573,7 @@ textarea.form-control {
     font-weight: 700;
     color: $dark-grey;
     margin-bottom: 1.5rem;
-    font-family: $font-serif;
+    font-family: $font-heading;
     padding-bottom: 1rem;
     border-bottom: 2px solid $gold;
 }
@@ -3742,7 +3756,7 @@ textarea.form-control {
     font-weight: 700;
     color: $dark-grey;
     margin-bottom: 1.5rem;
-    font-family: $font-serif;
+    font-family: $font-heading;
     line-height: 1.2;
 }
 
@@ -3806,7 +3820,7 @@ textarea.form-control {
         color: $dark-grey;
         margin-top: 2.5rem;
         margin-bottom: 1rem;
-        font-family: $font-serif;
+        font-family: $font-heading;
         
         &:first-child {
             margin-top: 0;
@@ -3819,7 +3833,7 @@ textarea.form-control {
         color: $dark-grey;
         margin-top: 2rem;
         margin-bottom: 1rem;
-        font-family: $font-serif;
+        font-family: $font-heading;
     }
     
     ul, ol {
