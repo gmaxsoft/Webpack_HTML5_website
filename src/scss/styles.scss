@@ -85,6 +85,10 @@ h6 {
     font-family: $font-heading;
 }
 
+.d-flex {
+    display: flex !important;
+}
+
 // Bootstrap container customization
 .container {
     max-width: $container-max-width;
@@ -248,7 +252,7 @@ h6 {
 
 .logo-image {
     height: auto;
-    max-height: 80px;
+    max-height: 70px;
     width: auto;
     max-width: 234px;
     display: block;
@@ -413,7 +417,7 @@ h6 {
     align-items: center;
     gap: 0.75rem;
     background: var(--gold);
-    padding: 0.75rem 1.25rem;
+    padding: 1rem;
     border-radius: 50px;
     cursor: pointer;
     transition: background 0.3s ease;
@@ -430,6 +434,7 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 50%;
 }
 
 .phone-icon svg {
@@ -437,11 +442,28 @@ h6 {
     height: 100%;
 }
 
-.phone-number {
-    color: var(--white);
-    font-weight: 600;
-    font-size: 0.9375rem;
-    font-family: 'Roboto', sans-serif;
+.phone-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;    
+    gap: 4px;                   /* odstęp między liniami */
+    align-items: flex-start; 
+
+    .phone-number {
+        color: var(--gold);
+        font-weight: 600;
+        font-size: 1rem;
+        font-family: 'Roboto', sans-serif;
+        padding-left: 1rem;
+    }
+
+    .phone-number-text {
+        color: var(--white);
+        font-weight: 400;
+        font-size: 0.9375rem;
+        font-family: 'Roboto', sans-serif;
+        padding-left: 1rem;
+    }
 }
 
 .hamburger {
@@ -4194,4 +4216,23 @@ html {
             padding: 8px 15px;
         }
     }
+}
+
+.scroll-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--text-dark);
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }

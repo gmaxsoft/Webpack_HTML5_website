@@ -525,24 +525,7 @@ function createScrollTopButton() {
     scrollTopBtn = document.createElement('button');
     scrollTopBtn.innerHTML = '↑';
     scrollTopBtn.className = 'scroll-top-btn';
-    scrollTopBtn.style.cssText = `
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-        color: white;
-        border: none;
-        font-size: 24px;
-        cursor: pointer;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 999;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    `;
+    scrollTopBtn.style.cssText = '';
     
     document.body.appendChild(scrollTopBtn);
     
