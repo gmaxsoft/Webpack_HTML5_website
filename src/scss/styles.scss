@@ -87,6 +87,25 @@ h6 {
     letter-spacing: 0.5px;
 }
 
+.parallax-wrapper {
+    height: 80vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.parallax-img {
+    width: 100%;
+    height: 130%;
+    /* musi być większe niż kontener */
+    object-fit: cover;
+    position: absolute;
+    top: -15%;
+    /* startowa pozycja */
+    left: 0;
+    will-change: transform;
+}
+
+
 .d-flex {
     display: flex !important;
 }
@@ -447,9 +466,10 @@ h6 {
 .phone-container {
     display: flex;
     align-items: center;
-    flex-direction: column;    
-    gap: 4px;                   /* odstęp między liniami */
-    align-items: flex-start; 
+    flex-direction: column;
+    gap: 4px;
+    /* odstęp między liniami */
+    align-items: flex-start;
 
     .phone-number {
         color: var(--gold);
@@ -951,22 +971,19 @@ textarea.form-control {
 
 .hero-content {
     background: rgba(0, 0, 0, 0.5);
-    padding: 3rem 4rem;
-    border-radius: 8px;
+    padding: 4rem 4rem;
+    border-radius: 0px;
     text-align: center;
-    max-width: 600px;
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
 }
 
 .hero-logo {
-    max-width: 150px;
+    max-width: 450px;
     height: auto;
     margin-bottom: 1rem;
-    filter: brightness(0) invert(1); // Make logo white
 }
 
 .hero-title {
@@ -991,7 +1008,7 @@ textarea.form-control {
     color: $gold;
     font-family: $font-sans;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 5px;
     margin: 0;
     line-height: 1.2;
 }
@@ -1222,8 +1239,10 @@ textarea.form-control {
 }
 
 .about-content-row {
+    display: flex;
     align-items: flex-start;
     gap: 3rem;
+    flex-wrap: nowrap;
 }
 
 .about-text-col {
@@ -1231,6 +1250,7 @@ textarea.form-control {
     flex-direction: column;
     position: relative;
     z-index: 1;
+    flex: 1;
 }
 
 .about-text-content {
@@ -1340,6 +1360,7 @@ textarea.form-control {
 .about-images-col {
     position: relative;
     height: 600px;
+    flex: 1;
 }
 
 .about-images-wrapper {
@@ -1599,7 +1620,7 @@ textarea.form-control {
     color: $text-light;
     font-family: $font-sans;
     font-style: italic;
-    letter-spacing: 1px;
+    letter-spacing: 5px;
     text-transform: uppercase;
 }
 
@@ -1649,14 +1670,17 @@ textarea.form-control {
 }
 
 .holiday-homes-content-row {
+    display: flex;
     align-items: flex-start;
     gap: 3rem;
+    flex-wrap: nowrap;
     margin-top: 2rem;
 }
 
 .holiday-homes-text-col {
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 .holiday-homes-text-content {
@@ -1678,7 +1702,7 @@ textarea.form-control {
     color: $text-light;
     font-family: $font-sans;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 5px;
     margin-bottom: 1rem;
 }
 
@@ -1723,6 +1747,7 @@ textarea.form-control {
 .holiday-homes-specs-col {
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 .holiday-homes-specifications {
@@ -1973,7 +1998,7 @@ textarea.form-control {
     color: $text-light;
     font-family: $font-sans;
     font-style: italic;
-    letter-spacing: 1px;
+    letter-spacing: 5px;
 }
 
 .specifications-tabs-wrapper {
@@ -1982,39 +2007,61 @@ textarea.form-control {
 }
 
 .specifications-tabs {
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
     justify-content: center;
-    gap: 1rem;
+    gap: 0rem;
     flex-wrap: wrap;
 
     .nav-item {
-        margin-bottom: -2px;
+        border: none;
+        text-align: center;
     }
 
     .nav-link {
         color: $text-dark;
         border: none;
-        border-bottom: 3px solid transparent;
-        padding: 0.75rem 1.5rem;
+        border-bottom: 0px;
+        padding: 1rem;
         transition: all 0.3s ease;
-        font-weight: 600;
-        font-size: 1rem;
+        font-weight: 400;
+        font-size: 0.8rem;
         text-transform: uppercase;
         letter-spacing: 1px;
         position: relative;
-        background: transparent;
-        margin-right: 0.5rem;
+        background: #f8f8f8;
+        margin-right: 0.1rem;
+        min-width: 200px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0px !important;
 
         &:hover {
-            color: $text-dark;
-            background: rgba(0, 0, 0, 0.05);
-            border-bottom-color: rgba(0, 0, 0, 0.2);
+            color: $gold;
+            background: $dark-grey-hover;
+            border: 0px;
         }
 
         &.active {
-            color: $text-dark;
-            background: rgba(0, 0, 0, 0.1);
-            border-bottom-color: $text-dark;
+            color: $gold;
+            background: $dark-grey;
+            border: 0px;
+        }
+
+        &.active::after {
+            content: "";
+            position: absolute;
+            bottom: -7px;
+            /* lekko zachodzi na border */
+            left: 50%;
+            transform: translateX(-50%);
+
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid $dark-grey;
+            /* ← kolor taki sam jak tło contentu! */
         }
     }
 }
@@ -2040,14 +2087,17 @@ textarea.form-control {
 }
 
 .specifications-content-row {
+    display: flex;
     align-items: flex-start;
     gap: 3rem;
+    flex-wrap: nowrap;
 }
 
 .specifications-text-column {
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
+    flex: 1;
 }
 
 .specifications-description {
@@ -2080,7 +2130,7 @@ textarea.form-control {
 }
 
 .spec-label {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: $text-dark;
     font-family: $font-sans;
     font-weight: 500;
@@ -2102,7 +2152,7 @@ textarea.form-control {
     align-items: center;
     justify-content: center;
     padding: 1rem 2.5rem;
-    background: $text-dark;
+    background: $dark-grey;
     color: $gold;
     text-decoration: none;
     font-weight: 600;
@@ -2126,6 +2176,7 @@ textarea.form-control {
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    flex: 1;
 }
 
 .specifications-image-container {
@@ -2378,7 +2429,7 @@ textarea.form-control {
     color: $gold;
     font-family: $font-sans;
     font-style: italic;
-    letter-spacing: 1px;
+    letter-spacing: 5px;
 }
 
 .attractions-slider {
@@ -2545,7 +2596,7 @@ textarea.form-control {
     color: $text-light;
     font-family: $font-sans;
     font-style: italic;
-    letter-spacing: 1px;
+    letter-spacing: 5px;
     margin-bottom: 1.5rem;
 }
 
@@ -2638,7 +2689,7 @@ textarea.form-control {
 
 .restaurant-overlay {
     position: absolute;
-    bottom:0;
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
@@ -2966,7 +3017,7 @@ textarea.form-control {
     background: $white;
     width: 100%;
     padding: 0;
-    height:250px;
+    height: 250px;
     position: relative
 }
 
@@ -2979,10 +3030,10 @@ textarea.form-control {
 
     iframe {
         filter: grayscale(100%);
-        position:absolute;
-        top:10%;
-        left:auto;
-        right:auto;
+        position: absolute;
+        top: 10%;
+        left: auto;
+        right: auto;
     }
 }
 
@@ -3022,7 +3073,7 @@ textarea.form-control {
     object-fit: contain;
 }
 
-.footer-info-row{
+.footer-info-row {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 3.875rem 1.875rem 3.375rem;
 }
@@ -3043,7 +3094,7 @@ textarea.form-control {
     justify-content: space-between;
 }
 
-.left-border{
+.left-border {
     border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 

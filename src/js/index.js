@@ -24,6 +24,9 @@ import { Pagination, Autoplay, EffectFade } from 'swiper/modules';
 window.Swiper = Swiper;
 window.SwiperModules = { Pagination, Autoplay, EffectFade };
 
+// Make SimpleParallax available globally for script.js
+//window.SimpleParallax = SimpleParallax;
+
 // Import SCSS
 import '../scss/styles.scss';
 
