@@ -962,7 +962,7 @@ textarea.form-control {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: transparent;
     z-index: 2;
     display: flex;
     align-items: center;
@@ -1055,29 +1055,39 @@ textarea.form-control {
 
     // Pagination dots styling
     .swiper-pagination {
-        bottom: 30px !important;
+        bottom: 0px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        background: $white;
         text-align: center;
         z-index: 10;
+        padding: 0.6rem 1.5rem 0rem 1.5rem;
+        width: auto;
+        margin: 0 auto;
+        -webkit-border-top-left-radius: 15px;
+        -webkit-border-top-right-radius: 15px;
+        -moz-border-radius-topleft: 15px;
+        -moz-border-radius-topright: 15px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
     }
 
     .swiper-pagination-bullet {
         width: 12px;
         height: 12px;
-        background: $white;
-        opacity: 0.5;
-        margin: 0 6px;
+        background: $dark-grey;
+        margin: 0 8px;
         transition: all 0.3s ease;
         cursor: pointer;
 
         &-active {
-            opacity: 1;
             transform: scale(1.2);
-            background: $white;
+            background: $gold;
         }
     }
 
     .swiper-pagination-bullet:hover:not(.swiper-pagination-bullet-active) {
-        opacity: 0.8;
+        background: lighten($dark-grey, 10%);
     }
 
     // Hide navigation arrows (if needed later)

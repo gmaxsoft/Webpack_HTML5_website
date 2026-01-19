@@ -1,6 +1,6 @@
-# AGAVA NOVA RESORT - Strona Internetowa
+# OŚRODEK WYPOCZYKOWY - Strona Internetowa
 
-Nowoczesna, responsywna strona internetowa dla ośrodka wypoczynkowego AGAVA NOVA RESORT w Przełazach. Strona została zbudowana przy użyciu HTML5, SCSS, JavaScript oraz nowoczesnych narzędzi jak Webpack, Bootstrap 5 i Swiper.js.
+Nowoczesna, responsywna strona internetowa dla ośrodka wypoczynkowego. Strona została zbudowana przy użyciu HTML5, SCSS, JavaScript oraz nowoczesnych narzędzi jak Webpack, Bootstrap 5 i Swiper.js.
 
 ## 📋 Spis Treści
 
@@ -281,7 +281,7 @@ SOFTWARE.
 
 **Maxsoft**
 
-- Projekt: AGAVA NOVA RESORT Website
+- Projekt: Maxsoft
 - Repozytorium: https://github.com/gmaxsoft/html5_website.git
 
 ## 📞 Kontakt
