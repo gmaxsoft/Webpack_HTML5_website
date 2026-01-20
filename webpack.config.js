@@ -158,6 +158,11 @@ module.exports = {
           from: path.resolve(__dirname, 'src/img'),
           to: path.resolve(__dirname, 'dist/images'),
         },
+        {
+          from: path.resolve(__dirname, '.htaccess'),
+          to: path.resolve(__dirname, 'dist/.htaccess'),
+          toType: 'file',
+        },
       ],
     }),
   ],

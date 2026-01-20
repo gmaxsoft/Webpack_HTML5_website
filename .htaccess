@@ -1,24 +1,28 @@
 # Apache Configuration for 404 Error Page
 # Place this file in the root of your web server
 
+# Set 404 Error Document (fallback if mod_rewrite is not available)
+ErrorDocument 404 /404.html
+
 # Enable Rewrite Engine
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
 
-    # Don't rewrite files (images, CSS, JS, fonts, etc.)
+    # Don't rewrite the 404.html file itself
+    RewriteCond %{REQUEST_URI} !^/404\.html$ [NC]
+    
+    # If the requested file or directory does not exist
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     
-    # Don't rewrite if file has an extension (static files)
-    RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]+$
+    # Don't redirect requests for static assets in asset directories
+    # (Let them return normal 404 for missing images, CSS, JS, etc.)
+    RewriteCond %{REQUEST_URI} !^/(images|css|js|fonts|assets)/ [NC]
     
-    # If the request is not for an existing file or directory, redirect to 404.html
+    # Redirect all non-existent files (including .html) to 404.html
     RewriteRule ^(.*)$ 404.html [L]
 </IfModule>
-
-# Set 404 Error Document
-ErrorDocument 404 /404.html
 
 # Cache Control for Static Files
 <IfModule mod_expires.c>
