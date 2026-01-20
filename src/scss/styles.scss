@@ -1271,7 +1271,7 @@ textarea.form-control {
 }
 
 .about-title {
-    font-size: 3rem;
+    font-size: 2rem;
     color: $text-dark;
     font-family: $font-heading;
     margin-bottom: 2rem;
@@ -1333,7 +1333,7 @@ textarea.form-control {
     justify-content: center;
     padding: 1rem 2.5rem;
     background: $text-dark;
-    color: $white;
+    color: $gold;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.875rem;
@@ -1381,7 +1381,7 @@ textarea.form-control {
 
 .about-main-image {
     position: absolute;
-    bottom: 0;
+    top: 5%;
     left: 0;
     width: 85%;
     height: 75%;
@@ -1395,7 +1395,7 @@ textarea.form-control {
 .about-overlay-image-top {
     position: absolute;
     top: 0;
-    right: 0;
+    right: -5%;
     width: 50%;
     height: 40%;
     z-index: 2;
@@ -1408,8 +1408,8 @@ textarea.form-control {
 
 .about-overlay-image-bottom {
     position: absolute;
-    bottom: 10%;
-    left: 0;
+    bottom: 5%;
+    left: -10%;
     width: 50%;
     height: 40%;
     z-index: 3;
