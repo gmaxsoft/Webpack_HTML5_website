@@ -478,6 +478,16 @@ h6 {
         font-size: 1rem;
         font-family: 'Roboto', sans-serif;
         padding-left: 1rem;
+        text-decoration: none;
+        transition: opacity 0.3s ease;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        &:visited {
+            color: var(--gold);
+        }
     }
 
     .phone-number-text {
@@ -1438,7 +1448,7 @@ textarea.form-control {
 .about-overlay-image-bottom {
     position: absolute;
     bottom: 5%;
-    left: -10%;
+    left: -5%;
     width: 50%;
     height: 40%;
     z-index: 3;
@@ -2237,11 +2247,12 @@ textarea.form-control {
 }
 
 .specifications-image-container {
-    width: 100%;
+    width: auto;
+    display: block;
     max-width: 100%;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: none!important;
     background: $white;
 }
 
@@ -2487,6 +2498,16 @@ textarea.form-control {
     font-family: $font-sans;
     font-style: italic;
     letter-spacing: 5px;
+}
+
+.attractions-description{
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: $font-sans;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 1.5rem auto 0;
+    text-align: center;
 }
 
 .attractions-slider {
