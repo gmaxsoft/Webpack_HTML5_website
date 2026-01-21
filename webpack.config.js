@@ -163,6 +163,11 @@ module.exports = {
           to: path.resolve(__dirname, 'dist/.htaccess'),
           toType: 'file',
         },
+        {
+          from: path.resolve(__dirname, 'robots.txt'),
+          to: path.resolve(__dirname, 'dist/robots.txt'),
+          toType: 'file',
+        },
       ],
     }),
   ],
