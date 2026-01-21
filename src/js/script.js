@@ -550,11 +550,3 @@ function createScrollTopButton() {
 // Initialize scroll-to-top button
 createScrollTopButton();
 
-// Parallax effect
-document.addEventListener("scroll", () => {
-    document.querySelectorAll(".parallax-img").forEach(img => {
-        const speed = parseFloat(img.dataset.speed) || 0.3;
-        const yPos = -(window.scrollY * speed);
-        img.style.transform = `translateY(${yPos}px)`;
-    });
-});

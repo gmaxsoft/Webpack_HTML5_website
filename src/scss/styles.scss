@@ -82,28 +82,13 @@ h3,
 h4,
 h5,
 h6 {
+    text-transform: uppercase;
     font-family: $font-heading;
     font-weight: 400;
     letter-spacing: 0.5px;
 }
 
-.parallax-wrapper {
-    height: 80vh;
-    overflow: hidden;
-    position: relative;
-}
 
-.parallax-img {
-    width: 100%;
-    height: 130%;
-    /* musi być większe niż kontener */
-    object-fit: cover;
-    position: absolute;
-    top: -15%;
-    /* startowa pozycja */
-    left: 0;
-    will-change: transform;
-}
 
 .none{  display: none!important; }
 
@@ -2750,17 +2735,14 @@ textarea.form-control {
         object-fit: cover;
         transition: opacity 0.5s ease;
         will-change: transform; // Optymalizacja dla animacji
-        transform-origin: center center;
-        --parallax-y: 0px; // CSS custom property dla efektu paralaksy
-
         &:not(.active) {
             opacity: 0;
-            transform: scale(1.05) translateY(0);
+            transform: scale(1.05);
         }
 
         &.active {
             opacity: 1;
-            transform: scale(1) translateY(var(--parallax-y, 0px));
+            transform: scale(1);
         }
     }
 }
@@ -3750,17 +3732,26 @@ textarea.form-control {
     margin-bottom: 2.5rem;
     border-radius: 8px;
     overflow: hidden;
+    height: 400px;
+    position: relative;
 
     img {
         width: 100%;
         height: auto;
+        object-fit: cover;
         display: block;
         transition: transform 0.3s ease;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
     }
 
     &:hover img {
         transform: scale(1.02);
     }
+
+
 }
 
 .news-detail-content {
@@ -3776,13 +3767,64 @@ textarea.form-control {
     p:last-child {
         margin-bottom: 0;
     }
+
+    // Three column layout for about page
+    .row {
+        margin: 0;
+    }
+
+    .about-column {
+        margin-top:2rem;
+        padding: 0rem;
+        height: 100%;
+
+        h2 {
+            font-size: 1.75rem;
+            color: $dark-grey;
+            font-family: $font-heading;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid $gold;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.about-detail-features {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: $text-dark;
+    margin-bottom: 2.5rem;
+
+    .row {
+        margin: 0;
+    }
+
+    p {
+        margin-bottom: 1.5rem;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
 }
 
 .features-title {
-    font-size: 1.5rem;
-    color: $dark-grey;
-    margin-bottom: 1.5rem;
+    font-size: 1.75rem;
+    color: #3d3d3d;
     font-family: $font-heading;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #eac26c
 }
 
 .features-list {
@@ -3931,14 +3973,29 @@ textarea.form-control {
     }
 }
 
+
+
 /* Responsive Styles for News Detail Pages */
 @media (max-width: 991px) {
     .news-detail-title {
         font-size: 2rem;
     }
 
+    .news-detail-image {
+        height: 300px;
+    }
+
     .news-detail-content {
         font-size: 1rem;
+
+        .about-column {
+            padding: 1rem;
+            margin-bottom: 2rem;
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
     }
 
     .features-title {
@@ -3970,6 +4027,29 @@ textarea.form-control {
 
     .news-detail-content {
         font-size: 0.9375rem;
+
+        .about-column {
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+
+            h2 {
+                font-size: 1.375rem;
+                margin-bottom: 1rem;
+            }
+
+            p {
+                font-size: 0.9375rem;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    .about-detail-features {
+        font-size: 0.9375rem;
+
+        p {
+            margin-bottom: 1rem;
+        }
     }
 
     .sidebar-widget {

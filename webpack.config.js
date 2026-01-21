@@ -12,7 +12,29 @@ const generateHtmlPlugins = (templateDir) => {
   const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
   
   return templateFiles
-    .filter(item => item.endsWith('.html')) // Wybierz tylko pliki .html
+    .filter(item => {
+      // Wybierz tylko pliki .html z katalogu głównego, wyklucz katalogi templates i dist
+      const fullPath = path.resolve(__dirname, templateDir, item);
+      const stats = fs.statSync(fullPath);
+      
+      // Pomijaj katalogi
+      if (stats.isDirectory()) {
+        return false;
+      }
+      
+      // Pomijaj pliki z katalogu templates (jeśli są w ścieżce)
+      if (fullPath.includes(path.join(__dirname, 'templates'))) {
+        return false;
+      }
+      
+      // Pomijaj pliki z katalogu dist (jeśli są w ścieżce)
+      if (fullPath.includes(path.join(__dirname, 'dist'))) {
+        return false;
+      }
+      
+      // Zwróć tylko pliki .html z katalogu głównego
+      return item.endsWith('.html');
+    })
     .map(item => {
       return new HtmlWebpackPlugin({
         template: path.resolve(__dirname, templateDir, item),
